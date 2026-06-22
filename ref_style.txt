@@ -1,0 +1,120 @@
+
+<!--
+    <div class="app-container">
+    <!-- Sidenav -->
+    <aside class="sidenav-container">
+        <div class="sidenav-header">
+        <h2>Brand Logo</h2>
+        </div>
+        <nav class="sidenav-links">
+        <a href="#">Dashboard</a>
+        <a href="#">Analytics</a>
+        <a href="#">Settings</a>
+        </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <header>
+        <h1>Page Title</h1>
+        </header>
+        <div class="content-body">
+        <p>Main page content goes here...</p>
+        </div>
+    </main>
+    </div>
+-->
+
+
+
+
+
+
+/* Basic page layout: full-page wrapper with left sidebar nav and main content on the right */
+:root{
+	--sidebar-width: 260px;
+	--gap: 16px;
+	--bg: #f7f8fb;
+	--sidebar-bg: #2f3b52;
+	--content-bg: #ffffff;
+	--muted: #6b7280;
+	--accent: #3b82f6;
+}
+
+html,body{
+	height:100%;
+	margin:0;
+	padding:0;
+	background:var(--bg);
+	font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+	color:#111827;
+}
+
+/* Page wrapper that hosts the sidebar and the main content */
+.page-wrapper{
+	min-height:100vh;
+	display:flex;
+	gap:var(--gap);
+}
+
+/* Sidebar / Nav */
+.sidebar{
+	width:var(--sidebar-width);
+	min-width:180px;
+	background:linear-gradient(180deg,var(--sidebar-bg),#253247);
+	color:#fff;
+	padding:24px 16px;
+	box-sizing:border-box;
+	display:flex;
+	flex-direction:column;
+	gap:12px;
+}
+.sidebar .brand{
+	font-weight:700;
+	font-size:1.125rem;
+	letter-spacing:0.4px;
+}
+.sidebar nav{
+	margin-top:8px;
+	display:flex;
+	flex-direction:column;
+	gap:6px;
+}
+.sidebar a{
+	color:rgba(255,255,255,0.9);
+	text-decoration:none;
+	padding:8px 10px;
+	border-radius:6px;
+	font-size:0.95rem;
+}
+.sidebar a:hover{background:rgba(255,255,255,0.06)}
+.sidebar a.active{background:rgba(255,255,255,0.12); color:var(--content-bg)}
+
+/* Main content area */
+.main-content{
+	flex:1 1 auto;
+	background:transparent;
+	padding:24px;
+	box-sizing:border-box;
+	display:flex;
+	flex-direction:column;
+	gap:16px;
+}
+.content-card{
+	background:var(--content-bg);
+	border-radius:10px;
+	padding:18px;
+	box-shadow:0 1px 3px rgba(16,24,40,0.06), 0 1px 2px rgba(16,24,40,0.04);
+}
+
+/* Simple responsive behavior: collapse sidebar to top on small screens */
+@media (max-width:720px){
+	.page-wrapper{flex-direction:column}
+	.sidebar{width:100%; min-width:0; flex-direction:row; align-items:center; overflow:auto}
+	.sidebar nav{flex-direction:row; gap:8px; margin-top:0}
+	.main-content{padding:12px}
+}
+
+/* Utility */
+.muted{color:var(--muted)}
+.btn{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none}
